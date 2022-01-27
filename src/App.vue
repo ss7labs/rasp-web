@@ -46,7 +46,12 @@
             <td>Стоимость</td>
           </tr>
           <tr v-for="(item) in calls" :key="item.id">
-            <td>{{item.time}}</td><td>{{item.direction}} <span v-if="item.iskz">(Ком.зал)</span></td><td>{{item.numb}}</td><td>{{item.duration}}</td><td>{{item.cost}}</td>
+            <td>{{item.time}}</td><td>{{item.direction}} <span v-if="item.iskz && item.minutes!=0">(Ком.зал)</span></td><td>{{item.numb}}</td>
+		<td>
+			<span v-if="item.minutes !=0">{{item.minutes}}</span>
+			<span v-else>{{item.duration}}</span>
+		</td>
+		<td>{{item.cost}}</td>
           </tr>
           <tr v-if="show_exceeded">
             <td colspan="3" class="text-left">Свеpхлимитные переговоры по гоpоду</td>
